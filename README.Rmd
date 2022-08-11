@@ -35,7 +35,7 @@ following commands inside of an R session:
 
 ```r
 install.packages("devtools")
-devtools::install_github("Jfortin1/crisprDesignData")
+devtools::install_github("crisprVerse/crisprDesignData")
 ```
 
 

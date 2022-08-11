@@ -41,7 +41,7 @@ inside of an R session:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("Jfortin1/crisprDesignData")
+devtools::install_github("crisprVerse/crisprDesignData")
 ```
 
 ### Getting started
@@ -233,25 +233,33 @@ data(tss_human, package="crisprDesignData")
 head(tss_human)
 ```
 
-    ## GRanges object with 6 ranges and 5 metadata columns:
-    ##         seqnames    ranges strand |           tx_id         gene_id gene_symbol
-    ##            <Rle> <IRanges>  <Rle> |     <character>     <character> <character>
-    ##   11402     chr1     65419      + | ENST00000641515 ENSG00000186092       OR4F5
-    ##   11442     chr1    923923      + | ENST00000616016 ENSG00000187634      SAMD11
-    ##   11444     chr1    925731      + | ENST00000342066 ENSG00000187634      SAMD11
-    ##   11445     chr1    960584      + | ENST00000338591 ENSG00000187961      KLHL17
-    ##   11446     chr1    960639      + | ENST00000622660 ENSG00000187961      KLHL17
-    ##   11447     chr1    966482      + | ENST00000379410 ENSG00000187583     PLEKHN1
-    ##                promoter                     ID
-    ##             <character>            <character>
-    ##   11402 ENST00000641515  OR4F5_ENST00000641515
-    ##   11442 ENST00000616016 SAMD11_ENST00000616016
-    ##   11444 ENST00000342066 SAMD11_ENST00000342066
-    ##   11445 ENST00000338591 KLHL17_ENST00000338591
-    ##   11446 ENST00000622660 KLHL17_ENST00000622660
-    ##   11447 ENST00000379410 PLEKHN1_ENST00000379..
+    ## GRanges object with 6 ranges and 9 metadata columns:
+    ##                      seqnames    ranges strand |     score peak_start  peak_end
+    ##                         <Rle> <IRanges>  <Rle> | <numeric>  <integer> <integer>
+    ##   ENSG00000000003_P1     chrX 100636805      - |   4.35417  100636805 100636805
+    ##   ENSG00000000005_P1     chrX 100584935      + |   3.29137  100584935 100584935
+    ##   ENSG00000000419_P1    chr20  50958531      - |   5.74747   50958531  50958531
+    ##   ENSG00000000457_P1     chr1 169893895      - |   4.75432  169893895 169893895
+    ##   ENSG00000000460_P1     chr1 169795044      + |   4.92777  169795044 169795044
+    ##   ENSG00000000938_P1     chr1  27635184      - |   4.61214   27635184  27635184
+    ##                                tx_id         gene_id      source    promoter
+    ##                          <character>     <character> <character> <character>
+    ##   ENSG00000000003_P1 ENST00000373020 ENSG00000000003     fantom5          P1
+    ##   ENSG00000000005_P1 ENST00000373031 ENSG00000000005     fantom5          P1
+    ##   ENSG00000000419_P1 ENST00000371588 ENSG00000000419     fantom5          P1
+    ##   ENSG00000000457_P1 ENST00000367771 ENSG00000000457     fantom5          P1
+    ##   ENSG00000000460_P1 ENST00000359326 ENSG00000000460     fantom5          P1
+    ##   ENSG00000000938_P1 ENST00000374005 ENSG00000000938     fantom5          P1
+    ##                                      ID gene_symbol
+    ##                             <character> <character>
+    ##   ENSG00000000003_P1 ENSG00000000003_P1      TSPAN6
+    ##   ENSG00000000005_P1 ENSG00000000005_P1        TNMD
+    ##   ENSG00000000419_P1 ENSG00000000419_P1        DPM1
+    ##   ENSG00000000457_P1 ENSG00000000457_P1       SCYL3
+    ##   ENSG00000000460_P1 ENSG00000000460_P1    C1orf112
+    ##   ENSG00000000938_P1 ENSG00000000938_P1         FGR
     ##   -------
-    ##   seqinfo: 25 sequences (1 circular) from hg38 genome
+    ##   seqinfo: 25 sequences from an unspecified genome; no seqlengths
 
 The function `queryTss` in `crisprDesign` is a user-friendly function to
 work with such objects, accepting an argument called `tss_window` to
@@ -271,19 +279,18 @@ tss <- queryTss(tss_human,
 head(tss)
 ```
 
-    ## GRanges object with 3 ranges and 5 metadata columns:
-    ##            seqnames            ranges strand |           tx_id         gene_id
-    ##               <Rle>         <IRanges>  <Rle> |     <character>     <character>
-    ##   region_1    chr12 25250752-25251251      - | ENST00000256078 ENSG00000133703
-    ##   region_2    chr12 25250752-25251251      - | ENST00000557334 ENSG00000133703
-    ##   region_3    chr12 25250765-25251264      - | ENST00000556131 ENSG00000133703
-    ##            gene_symbol        promoter                   ID
-    ##            <character>     <character>          <character>
-    ##   region_1        KRAS ENST00000256078 KRAS_ENST00000256078
-    ##   region_2        KRAS ENST00000557334 KRAS_ENST00000557334
-    ##   region_3        KRAS ENST00000556131 KRAS_ENST00000556131
+    ## GRanges object with 1 range and 9 metadata columns:
+    ##            seqnames            ranges strand |     score peak_start  peak_end
+    ##               <Rle>         <IRanges>  <Rle> | <numeric>  <integer> <integer>
+    ##   region_1    chr12 25250929-25251428      - |   5.20187   25250928  25250928
+    ##                      tx_id         gene_id      source    promoter
+    ##                <character>     <character> <character> <character>
+    ##   region_1 ENST00000256078 ENSG00000133703     fantom5          P1
+    ##                            ID gene_symbol
+    ##                   <character> <character>
+    ##   region_1 ENSG00000133703_P1        KRAS
     ##   -------
-    ##   seqinfo: 25 sequences (1 circular) from hg38 genome
+    ##   seqinfo: 25 sequences from an unspecified genome; no seqlengths
 
 # mRNA datasets
 
@@ -377,9 +384,9 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.99    crisprBase_1.1.2        GenomicRanges_1.47.6   
-    ## [4] GenomeInfoDb_1.31.6     IRanges_2.29.1          S4Vectors_0.33.11      
-    ## [7] BiocGenerics_0.41.2     crisprDesignData_0.99.8
+    ## [1] crisprDesign_0.99.117    crisprBase_1.1.5         GenomicRanges_1.48.0    
+    ## [4] GenomeInfoDb_1.32.2      IRanges_2.30.0           S4Vectors_0.33.11       
+    ## [7] BiocGenerics_0.42.0      crisprDesignData_0.99.13
     ## 
     ## loaded via a namespace (and not attached):
     ##   [1] bitops_1.0-7                  matrixStats_0.61.0           
@@ -397,11 +404,11 @@ sessionInfo()
     ##  [25] readr_2.1.2                   rappdirs_0.3.3               
     ##  [27] stringr_1.4.0                 digest_0.6.29                
     ##  [29] Rsamtools_2.11.0              rmarkdown_2.13               
-    ##  [31] crisprScore_1.1.9             basilisk_1.9.2               
+    ##  [31] crisprScore_1.1.13            basilisk_1.9.2               
     ##  [33] XVector_0.35.0                pkgconfig_2.0.3              
     ##  [35] htmltools_0.5.2               MatrixGenerics_1.7.0         
     ##  [37] dbplyr_2.1.1                  fastmap_1.1.0                
-    ##  [39] BSgenome_1.63.5               rlang_1.0.2                  
+    ##  [39] BSgenome_1.64.0               rlang_1.0.4                  
     ##  [41] rstudioapi_0.13               RSQLite_2.2.12               
     ##  [43] shiny_1.7.1                   BiocIO_1.5.0                 
     ##  [45] generics_0.1.2                jsonlite_1.8.0               
@@ -409,8 +416,8 @@ sessionInfo()
     ##  [49] VariantAnnotation_1.41.3      RCurl_1.98-1.6               
     ##  [51] magrittr_2.0.2                GenomeInfoDbData_1.2.7       
     ##  [53] Matrix_1.4-0                  Rcpp_1.0.8.3                 
-    ##  [55] fansi_1.0.2                   reticulate_1.24              
-    ##  [57] Rbowtie_1.35.0                lifecycle_1.0.1              
+    ##  [55] fansi_1.0.2                   reticulate_1.25              
+    ##  [57] Rbowtie_1.36.0                lifecycle_1.0.1              
     ##  [59] stringi_1.7.6                 yaml_2.3.5                   
     ##  [61] SummarizedExperiment_1.25.3   zlibbioc_1.41.0              
     ##  [63] AnnotationHub_3.3.9           BiocFileCache_2.3.4          
@@ -418,7 +425,7 @@ sessionInfo()
     ##  [67] promises_1.2.0.1              parallel_4.2.0               
     ##  [69] ExperimentHub_2.3.5           crayon_1.5.0                 
     ##  [71] dir.expiry_1.3.0              lattice_0.20-45              
-    ##  [73] Biostrings_2.63.2             GenomicFeatures_1.47.13      
+    ##  [73] Biostrings_2.64.0             GenomicFeatures_1.47.13      
     ##  [75] hms_1.1.1                     KEGGREST_1.35.0              
     ##  [77] knitr_1.37                    pillar_1.7.0                 
     ##  [79] rjson_0.2.21                  biomaRt_2.51.3               
