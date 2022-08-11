@@ -1,0 +1,186 @@
+---
+title: "crisprDesignData: example data for the crisprDesign ecosystem"
+author: 
+- name: Jean-Philippe Fortin
+  affiliation: Department of Data Science and Statistical Computing, gRED,
+   Genentech
+  email: fortin946@gmail.com
+- name: Luke Hoberecht
+  affiliation: Department of Data Science and Statistical Computing, gRED,
+   Genentech
+  email: lukehob3@gmail.com
+date: "`r Sys.Date()`"
+output: 
+  BiocStyle::html_document:
+    toc_float: true
+    theme: paper
+    number_sections: true
+vignette: >
+  %\VignetteIndexEntry{crisprDesignData}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=FALSE, results="hide"}
+options("knitr.graphics.auto_pdf"=TRUE, eval=TRUE)
+```
+
+# Overview
+
+The `crisprDesignData` package provides ready-to-use 
+annotation data needed needed for the `crisprDesign` ecosystem, 
+for both human and human.
+
+# Installation
+
+## Software requirements
+
+### OS Requirements
+
+This package is supported for macOS, Linux and Windows machines.
+It was developed and tested on R version 4.2.
+
+## Installation
+
+`crisprDesignData` can be installed by typing the
+following commands inside of an R session:
+
+```r
+install.packages("devtools")
+devtools::install_github("Jfortin1/crisprDesignData")
+```
+
+
+### Getting started
+
+`crisprDesignData` can be loaded into an R session in the usual way:
+
+```{r, warnings=FALSE, message=FALSE}
+library(crisprDesignData)
+```
+
+# Datasets
+
+
+|  Object name | Object class | Version | Description |
+|----------- | ----------- | ----------- |----------- | 
+| `txdb_human`  | `GRangesList`   | Release 104 | Ensembl gene model for human (hg38/GRCh38) |
+| `txdb_mouse`  | `GRangesList`   | Release 102 | Ensembl gene model for mouse (mm10/GRCm38) |
+| `tss_human`   | `GRanges`       | Release 104 | Ensembl-based TSS coordinates for human (hg38/GRCh38) |
+| `tss_mouse`   | `GRanges`       | Release 102 | Ensembl-based TSS coordinates for human (mm10/GRCm38) |
+| `gr.repeats.hg38`   | `GRanges` |             | RepeatMasker data from UCSC genome browser (hg38/GRCh38) |
+| `gr.repeats.mm10`   | `GRanges` |             | RepeatMasker data from UCSC genome browser (mm10/GRCm38) |
+
+
+
+# TxDb datasets
+
+The `txdb_human` and `txdb_mouse` objects are `GRangesList` representing
+gene models for human and mouse, respectively, from Ensembl. They were
+constructed using the function `getTxDb` in `crisprDesign`. See the script 
+`generateTxDbData.R`in the `inst` folder to see how to generate such data
+for other organisms (internet connection needed). 
+
+Let's look at the `txdb_human` object. We first load the data:
+
+```{r, warning=FALSE, message=FALSE}
+data(txdb_human, package="crisprDesignData")
+```
+
+We can look at metadata information about the gene model by using the
+`metadata` function from the `S4Vectors` package:
+
+```{r, warning=FALSE, message=FALSE}
+head(S4Vectors::metadata(txdb_human))
+```
+
+The object is a `GRangesList` with 7 elements that contain genomic coordinates
+for different levels of the gene model: 
+
+```{r}
+names(txdb_human)
+```
+
+As an example, let's look at the `GRanges` containing genomic coordinates for
+all exons represented in the gene model:
+
+```{r}
+txdb_human$exons
+```
+
+The function `queryTxObject` in `crisprDesign` is a user-friendly function
+to work with such objects, for instance once can return the CDS coordinates
+for the KRAS transcripts using the following lines of code:
+
+
+```{r, warning=FALSE, message=FALSE}
+library(crisprDesign)
+cds <- queryTxObject(txdb_human,
+                     featureType="cds",
+                     queryColumn="gene_symbol",
+                     queryValue="KRAS")
+head(cds)
+```
+
+
+# TSS datasets
+
+The `tss_human` and `tss_mouse` objects are `GRanges` representing
+the transcription starting sites (TSSs) coordinates for human and mouse, 
+respectively. The coordinates were extracted from the transcripts stored in
+the Ensembl-based models `txdb_human` and `txdb_mouse` using the function
+`getTssObjectFromTxObject` from `crisprDesign`. See the script 
+`generateTssObjects.R`in the `inst` folder to see how to generate such data.
+
+Let's take a look at `tss_human`:
+
+```{r}
+data(tss_human, package="crisprDesignData")
+head(tss_human)
+```
+
+
+The function `queryTss` in `crisprDesign` is a user-friendly function
+to work with such objects, accepting an argument called `tss_window` to specify 
+a number of nucleotides upstream and downstream of the TSS. This is particularly useful to return genomic regions to target for CRISPRa and CRISPRi. 
+
+For instance, if we want to target the region 500 nucleotides upstream of any of the KRAS TSSs, one can use the following lines of code:
+
+```{r, warning=FALSE, message=FALSE}
+library(crisprDesign)
+tss <- queryTss(tss_human,
+                queryColumn="gene_symbol",
+                queryValue="KRAS",
+                tss_window=c(-500,0))
+tss
+```
+
+
+# Repeats datasets
+
+The objects `gr.repeats.hg38` and `gr.repeats.mm10` objects are `GRanges` 
+representing the genomic coordinates of repeat elements in the human and mouse
+genomes, as defined by the RepeatMasker tracks in the UCSC genome browser.
+
+
+Let's look at the repeats elements in the human genome:
+
+```{r}
+data(gr.repeats.hg38, package="crisprDesignData")
+head(gr.repeats.hg38)
+```
+
+
+# License
+
+The package is licensed under the MIT license. 
+
+# Reproducibility
+
+```{r}
+sessionInfo()
+```
+
+
+
+
