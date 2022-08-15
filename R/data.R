@@ -111,5 +111,19 @@
 "apprisMouse"
 
 
+#' Canonical Ensembl transcripts for human genes (Ensembl release 104)
+#'
+#' data.frame containing canonical Ensembl transcripts for human genes.
+#' First column contains transcript ID, second column contains gene ID.
+#' 
+#' @format data.frame
+"canonicalHuman"
 
 
+#' Canonical Ensembl transcripts for mouse genes (Ensembl release 102)
+#'
+#' data.frame containing canonical Ensembl transcripts for mouse genes.
+#' First column contains transcript ID, second column contains gene ID.
+#' 
+#' @format data.frame
+"canonicalMouse"

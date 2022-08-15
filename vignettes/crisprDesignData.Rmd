@@ -70,6 +70,8 @@ library(crisprDesignData)
 | `tss_mouse`   | `GRanges`       | Release 102 | Ensembl-based TSS coordinates for human (mm10/GRCm38) |
 | `gr.repeats.hg38`   | `GRanges` |             | RepeatMasker data from UCSC genome browser (hg38/GRCh38) |
 | `gr.repeats.mm10`   | `GRanges` |             | RepeatMasker data from UCSC genome browser (mm10/GRCm38) |
+| `canonicalHuman`   | `data.frame` |   Release 104          | Canonical Ensembl transcripts for human |
+| `canonicalMouse`   | `data.frame` |   Release 102          | Canonical Ensembl transcripts for mouse |
 
 
 
@@ -170,6 +172,20 @@ data(gr.repeats.hg38, package="crisprDesignData")
 head(gr.repeats.hg38)
 ```
 
+
+# Canonical transcripts
+
+The data.frames `canonicalHuman` and `canonicalMouse` contains information
+about Ensembl canonical transcripts for human and mouse respectively.
+The Ensembl canonical transcript is the best well-supported, 
+biologically representative, highly expressed, and highly conserved transcript
+for a given gene. MANE Select is used as the canonical transcript for 
+human protein coding genes where available.
+
+```{r}
+data(canonicalHuman, package="crisprDesignData")
+head(canonicalHuman)
+```
 
 # License
 

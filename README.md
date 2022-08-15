@@ -12,6 +12,7 @@ crisprDesignData: example data for the crisprDesign ecosystem
 -   [TSS datasets](#tss-datasets)
 -   [mRNA datasets](#mrna-datasets)
 -   [Repeats datasets](#repeats-datasets)
+-   [Canonical transcripts](#canonical-transcripts)
 -   [License](#license)
 -   [Reproducibility](#reproducibility)
 
@@ -64,6 +65,8 @@ library(crisprDesignData)
 | `mrnasMouse`      | `DNAStringSet` | Release 102 | Ensembl-based mRNA nucleotide sequences for mouse (mm10/GRCm38) |
 | `gr.repeats.hg38` | `GRanges`      |             | RepeatMasker data from UCSC genome browser (hg38/GRCh38)        |
 | `gr.repeats.mm10` | `GRanges`      |             | RepeatMasker data from UCSC genome browser (mm10/GRCm38)        |
+| `canonicalHuman`  | `data.frame`   | Release 104 | Canonical Ensembl transcripts for human                         |
+| `canonicalMouse`  | `data.frame`   | Release 102 | Canonical Ensembl transcripts for mouse                         |
 
 # TxDb datasets
 
@@ -358,6 +361,28 @@ head(gr.repeats.hg38)
     ##   -------
     ##   seqinfo: 25 sequences (1 circular) from hg38 genome
 
+# Canonical transcripts
+
+The data.frames `canonicalHuman` and `canonicalMouse` contains
+information about Ensembl canonical transcripts for human and mouse
+respectively. The Ensembl canonical transcript is the best
+well-supported, biologically representative, highly expressed, and
+highly conserved transcript for a given gene. MANE Select is used as the
+canonical transcript for human protein coding genes where available.
+
+``` r
+data(canonicalHuman, package="crisprDesignData")
+head(canonicalHuman)
+```
+
+    ##             tx_id         gene_id
+    ## 1 ENST00000272065 ENSG00000143727
+    ## 2 ENST00000329066 ENSG00000115705
+    ## 3 ENST00000252505 ENSG00000151360
+    ## 4 ENST00000256509 ENSG00000134121
+    ## 5 ENST00000349077 ENSG00000118004
+    ## 6 ENST00000273130 ENSG00000144635
+
 # License
 
 The package is licensed under the MIT license.
@@ -384,9 +409,9 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.117    crisprBase_1.1.5         GenomicRanges_1.48.0    
+    ## [1] crisprDesign_0.99.123    crisprBase_1.1.5         GenomicRanges_1.48.0    
     ## [4] GenomeInfoDb_1.32.2      IRanges_2.30.0           S4Vectors_0.33.11       
-    ## [7] BiocGenerics_0.42.0      crisprDesignData_0.99.13
+    ## [7] BiocGenerics_0.42.0      crisprDesignData_0.99.14
     ## 
     ## loaded via a namespace (and not attached):
     ##   [1] bitops_1.0-7                  matrixStats_0.61.0           
