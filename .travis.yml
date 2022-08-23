@@ -1,6 +1,0 @@
-language: r
-r: bioc-devel
-bioc_required: yes
-warnings_are_errors: false
-
-r_check_args: --as-cran
