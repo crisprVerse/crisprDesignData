@@ -1,4 +1,4 @@
-crisprDesignData: example data for the crisprDesign ecosystem
+crisprDesignData: useful data for the crisprVerse ecosystem
 ================
 
 -   [Overview](#overview)
@@ -23,8 +23,7 @@ Date: July 16, 2022
 # Overview
 
 The `crisprDesignData` package provides ready-to-use annotation data
-needed needed for the `crisprDesign` ecosystem, for both human and
-human.
+needed needed for the `crisprVerse` ecosystem, for both human and human.
 
 # Installation
 
@@ -409,7 +408,7 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.123    crisprBase_1.1.5         GenomicRanges_1.48.0    
+    ## [1] crisprDesign_0.99.131    crisprBase_1.1.5         GenomicRanges_1.48.0    
     ## [4] GenomeInfoDb_1.32.2      IRanges_2.30.0           S4Vectors_0.33.11       
     ## [7] BiocGenerics_0.42.0      crisprDesignData_0.99.14
     ## 

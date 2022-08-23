@@ -1,5 +1,5 @@
 ---
-title: "crisprDesignData: example data for the crisprDesign ecosystem"
+title: "crisprDesignData: useful data for the crisprVerse ecosystem"
 output: 
   github_document:
     toc: true
@@ -16,7 +16,7 @@ Date: July 16, 2022
 # Overview
 
 The `crisprDesignData` package provides ready-to-use 
-annotation data needed needed for the `crisprDesign` ecosystem, 
+annotation data needed needed for the `crisprVerse` ecosystem, 
 for both human and human.
 
 # Installation

@@ -1,5 +1,5 @@
 ---
-title: "crisprDesignData: example data for the crisprDesign ecosystem"
+title: "crisprDesignData: useful data for the crisprVerse ecosystem"
 author: 
 - name: Jean-Philippe Fortin
   affiliation: Department of Data Science and Statistical Computing, gRED,
@@ -28,7 +28,7 @@ options("knitr.graphics.auto_pdf"=TRUE, eval=TRUE)
 # Overview
 
 The `crisprDesignData` package provides ready-to-use 
-annotation data needed needed for the `crisprDesign` ecosystem, 
+annotation data needed needed for the `crisprVerse` ecosystem, 
 for both human and human.
 
 # Installation

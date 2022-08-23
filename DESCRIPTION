@@ -1,11 +1,11 @@
 Package: crisprDesignData
-Title: Precomputed data for crisprDesign
-Description: Provides precomputed data for the crisprDesign package.
+Title: Useful data for the crisprVerse ecosystem
+Description: Provides precomputed data for the crisprVerse ecosystem.
     Ensembl-based gene models, and FANTOM5-derived transcription starting sites
     (TSSs), are provided for both mouse and human. Genomic coordinates
     of repeat elements are also provided. All objects are expressed in 
     GRCh38 (human) and GRCm38 (mouse) coordinates. 
-Version: 0.99.15
+Version: 0.99.16
 Authors@R: c(
     person("Jean-Philippe", "Fortin", email = "fortin946@gmail.com", role = c("aut", "cre")),
     person("Luke", "Hoberecht", email = "lukehob3@gmail.com", role = c("aut"))
