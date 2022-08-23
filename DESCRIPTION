@@ -30,3 +30,4 @@ biocViews:
 BugReports: https://github.com/crisprVerse/crisprDesignData/issues
 URL: https://github.com/crisprVerse/crisprDesignData
 LazyData: true
+LazyDataCompression: xz
