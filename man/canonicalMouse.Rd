@@ -8,7 +8,7 @@
 data.frame
 }
 \usage{
-canonicalMouse
+data(canonicalMouse, package="crisprDesignData")
 }
 \description{
 data.frame containing canonical Ensembl transcripts for mouse genes.

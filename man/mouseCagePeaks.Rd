@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-mouseCagePeaks
+data(mouseCagePeaks, package="crisprDesignData")
 }
 \description{
 Genomic coordinates of FANTOM5 CAGE Peaks in mm10 coordinates.

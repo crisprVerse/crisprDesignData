@@ -8,7 +8,7 @@
 DNAStringSet
 }
 \usage{
-mrnasMouse
+data(mrnasMouse, package="crisprDesignData")
 }
 \description{
 DNAStringSet of mRNA sequences of mouse transcripts

@@ -8,7 +8,7 @@
 GRangesList
 }
 \usage{
-txdb_mouse
+data(txdb_mouse, package="crisprDesignData")
 }
 \description{
 GRangesList representing Ensembl gene model coordinates for mouse in 

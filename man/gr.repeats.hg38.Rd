@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-gr.repeats.hg38
+data(gr.repeats.hg38, package="crisprDesignData")
 }
 \description{
 Repeat elements coordinates for hg38 obtained from the RepeatMasker track

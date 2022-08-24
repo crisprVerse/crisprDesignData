@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-tss_mouse
+data(tss_mouse, package="crisprDesignData")
 }
 \description{
 GRanges representing Ensembl-based TSS coordinates for mouse in mm10/GRCm38

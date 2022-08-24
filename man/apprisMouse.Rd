@@ -8,7 +8,7 @@
 data.frame
 }
 \usage{
-apprisMouse
+data(apprisMouse, package="crisprDesignData")
 }
 \description{
 data.frame containing APPRIS annotation for mouse genes

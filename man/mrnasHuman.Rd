@@ -8,7 +8,7 @@
 DNAStringSet
 }
 \usage{
-mrnasHuman
+data(mrnasHuman, package="crisprDesignData")
 }
 \description{
 DNAStringSet of mRNA sequences of human transcripts

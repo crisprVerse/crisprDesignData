@@ -4,6 +4,7 @@
 #' found at the UCSC genome browser. 
 #' 
 #' @format GRanges
+#' @usage data(gr.repeats.hg38, package="crisprDesignData")
 "gr.repeats.hg38"
 
 
@@ -13,6 +14,7 @@
 #' found at the UCSC genome browser. 
 #' 
 #' @format GRanges
+#' @usage data(gr.repeats.mm10, package="crisprDesignData")
 "gr.repeats.mm10"
 
 
@@ -22,6 +24,7 @@
 #' hg38/GRCh38 coordinates (Ensembl release 104)
 #' 
 #' @format GRangesList
+#' @usage data(txdb_human, package="crisprDesignData")
 "txdb_human"
 
 
@@ -31,6 +34,7 @@
 #' mm10/GRCm38 coordinates (Ensembl release 102)
 #' 
 #' @format GRangesList
+#' @usage data(txdb_mouse, package="crisprDesignData")
 "txdb_mouse"
 
 
@@ -40,6 +44,7 @@
 #' hg38/GRCh38 coordinates (Ensembl release 104)
 #' 
 #' @format GRanges
+#' @usage data(tss_human, package="crisprDesignData")
 "tss_human"
 
 
@@ -49,6 +54,7 @@
 #' coordinates (Ensembl release 102)
 #' 
 #' @format GRanges
+#' @usage data(tss_mouse, package="crisprDesignData")
 "tss_mouse"
 
 
@@ -58,6 +64,7 @@
 #' Genomic coordinates of FANTOM5 CAGE Peaks in hg38 coordinates.
 #' 
 #' @format GRanges
+#' @usage data(humanCagePeaks, package="crisprDesignData")
 "humanCagePeaks"
 
 
@@ -67,6 +74,7 @@
 #' Genomic coordinates of FANTOM5 CAGE Peaks in mm10 coordinates.
 #' 
 #' @format GRanges
+#' @usage data(mouseCagePeaks, package="crisprDesignData")
 "mouseCagePeaks"
 
 
@@ -78,6 +86,7 @@
 #' (Ensembl release 104) extracted from the txdb_human object.
 #' 
 #' @format DNAStringSet
+#' @usage data(mrnasHuman, package="crisprDesignData")
 "mrnasHuman"
 
 
@@ -87,6 +96,7 @@
 #' (Ensembl release 102) extracted from the txdb_human object.
 #' 
 #' @format DNAStringSet
+#' @usage data(mrnasMouse, package="crisprDesignData")
 "mrnasMouse"
 
 
@@ -98,6 +108,7 @@
 #' gene annotation.
 #' 
 #' @format data.frame
+#' @usage data(apprisHuman, package="crisprDesignData")
 "apprisHuman"
 
 
@@ -108,6 +119,7 @@
 #' gene annotation.
 #' 
 #' @format data.frame
+#' @usage data(apprisMouse, package="crisprDesignData")
 "apprisMouse"
 
 
@@ -117,6 +129,7 @@
 #' First column contains transcript ID, second column contains gene ID.
 #' 
 #' @format data.frame
+#' @usage data(canonicalHuman, package="crisprDesignData")
 "canonicalHuman"
 
 
@@ -126,4 +139,5 @@
 #' First column contains transcript ID, second column contains gene ID.
 #' 
 #' @format data.frame
+#' @usage data(canonicalMouse, package="crisprDesignData")
 "canonicalMouse"

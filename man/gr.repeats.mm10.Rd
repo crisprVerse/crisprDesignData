@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-gr.repeats.mm10
+data(gr.repeats.mm10, package="crisprDesignData")
 }
 \description{
 Repeat elements coordinates for mm10 obtained from the RepeatMasker track

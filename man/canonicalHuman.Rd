@@ -8,7 +8,7 @@
 data.frame
 }
 \usage{
-canonicalHuman
+data(canonicalHuman, package="crisprDesignData")
 }
 \description{
 data.frame containing canonical Ensembl transcripts for human genes.

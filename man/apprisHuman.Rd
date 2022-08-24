@@ -8,7 +8,7 @@
 data.frame
 }
 \usage{
-apprisHuman
+data(apprisHuman, package="crisprDesignData")
 }
 \description{
 data.frame containing APPRIS annotation for human genes

@@ -8,7 +8,7 @@
 GRangesList
 }
 \usage{
-txdb_human
+data(txdb_human, package="crisprDesignData")
 }
 \description{
 GRangesList representing Ensembl gene model coordinates for human in 

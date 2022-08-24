@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-humanCagePeaks
+data(humanCagePeaks, package="crisprDesignData")
 }
 \description{
 Genomic coordinates of FANTOM5 CAGE Peaks in hg38 coordinates.

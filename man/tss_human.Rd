@@ -8,7 +8,7 @@
 GRanges
 }
 \usage{
-tss_human
+data(tss_human, package="crisprDesignData")
 }
 \description{
 GRanges representing Ensembl-based TSS coordinates for human in 
