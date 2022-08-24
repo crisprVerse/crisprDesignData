@@ -5,13 +5,14 @@ output:
     toc: true
 ---
 
+[![R-CMD-check](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml)
+
 ```{r, echo=FALSE, results="hide"}
 options("knitr.graphics.auto_pdf"=TRUE)
 ```
 
 Authors: Jean-Philippe Fortin, Luke Hoberecht
 
-Date: July 16, 2022
 
 # Overview
 

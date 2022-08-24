@@ -16,6 +16,8 @@ crisprDesignData: useful data for the crisprVerse ecosystem
 -   [License](#license)
 -   [Reproducibility](#reproducibility)
 
+[![R-CMD-check](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml)
+
 Authors: Jean-Philippe Fortin, Luke Hoberecht
 
 Date: July 16, 2022
