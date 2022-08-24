@@ -45,3 +45,4 @@ inst/repeats
 data/txdb_human_106.rda
 vignettes/crisprDesignData.html
 inst/fantom5/hg38_liftover+new_CAGE_peaks_phase1and2.bed.gz
+vignettes/crisprDesignData_paper*

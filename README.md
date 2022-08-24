@@ -1,26 +1,27 @@
 crisprDesignData: useful data for the crisprVerse ecosystem
 ================
 
--   [Overview](#overview)
--   [Installation](#installation)
-    -   [Software requirements](#software-requirements)
-        -   [OS Requirements](#os-requirements)
-    -   [Installation](#installation-1)
-        -   [Getting started](#getting-started)
--   [Datasets](#datasets)
--   [TxDb datasets](#txdb-datasets)
--   [TSS datasets](#tss-datasets)
--   [mRNA datasets](#mrna-datasets)
--   [Repeats datasets](#repeats-datasets)
--   [Canonical transcripts](#canonical-transcripts)
--   [License](#license)
--   [Reproducibility](#reproducibility)
+-   <a href="#overview" id="toc-overview">Overview</a>
+-   <a href="#installation" id="toc-installation">Installation</a>
+    -   <a href="#software-requirements" id="toc-software-requirements">Software
+        requirements</a>
+        -   <a href="#os-requirements" id="toc-os-requirements">OS Requirements</a>
+    -   <a href="#installation-1" id="toc-installation-1">Installation</a>
+        -   <a href="#getting-started" id="toc-getting-started">Getting started</a>
+-   <a href="#datasets" id="toc-datasets">Datasets</a>
+-   <a href="#txdb-datasets" id="toc-txdb-datasets">TxDb datasets</a>
+-   <a href="#tss-datasets" id="toc-tss-datasets">TSS datasets</a>
+-   <a href="#mrna-datasets" id="toc-mrna-datasets">mRNA datasets</a>
+-   <a href="#repeats-datasets" id="toc-repeats-datasets">Repeats
+    datasets</a>
+-   <a href="#canonical-transcripts"
+    id="toc-canonical-transcripts">Canonical transcripts</a>
+-   <a href="#license" id="toc-license">License</a>
+-   <a href="#reproducibility" id="toc-reproducibility">Reproducibility</a>
 
 [![R-CMD-check](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/crisprVerse/crisprDesignData/actions/workflows/check-standard.yaml)
 
 Authors: Jean-Philippe Fortin, Luke Hoberecht
-
-Date: July 16, 2022
 
 # Overview
 
@@ -34,7 +35,7 @@ needed needed for the `crisprVerse` ecosystem, for both human and human.
 ### OS Requirements
 
 This package is supported for macOS, Linux and Windows machines. It was
-developed and tested on R version 4.2.
+developed and tested on R version 4.2.1.
 
 ## Installation
 
@@ -394,7 +395,7 @@ The package is licensed under the MIT license.
 sessionInfo()
 ```
 
-    ## R Under development (unstable) (2022-03-21 r81954)
+    ## R version 4.2.1 (2022-06-23)
     ## Platform: x86_64-apple-darwin17.0 (64-bit)
     ## Running under: macOS Catalina 10.15.7
     ## 
@@ -410,60 +411,60 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.131    crisprBase_1.1.5         GenomicRanges_1.48.0    
-    ## [4] GenomeInfoDb_1.32.2      IRanges_2.30.0           S4Vectors_0.33.11       
-    ## [7] BiocGenerics_0.42.0      crisprDesignData_0.99.14
+    ## [1] crisprDesign_0.99.132    crisprBase_1.1.5         GenomicRanges_1.49.1    
+    ## [4] GenomeInfoDb_1.33.5      IRanges_2.31.2           S4Vectors_0.35.1        
+    ## [7] BiocGenerics_0.43.1      crisprDesignData_0.99.17
     ## 
     ## loaded via a namespace (and not attached):
-    ##   [1] bitops_1.0-7                  matrixStats_0.61.0           
+    ##   [1] bitops_1.0-7                  matrixStats_0.62.0           
     ##   [3] bit64_4.0.5                   filelock_1.0.2               
-    ##   [5] progress_1.2.2                httr_1.4.2                   
-    ##   [7] tools_4.2.0                   utf8_1.2.2                   
-    ##   [9] R6_2.5.1                      DBI_1.1.2                    
+    ##   [5] progress_1.2.2                httr_1.4.4                   
+    ##   [7] tools_4.2.1                   utf8_1.2.2                   
+    ##   [9] R6_2.5.1                      DBI_1.1.3                    
     ##  [11] tidyselect_1.1.2              prettyunits_1.1.1            
     ##  [13] bit_4.0.4                     curl_4.3.2                   
-    ##  [15] compiler_4.2.0                crisprBowtie_1.1.1           
-    ##  [17] cli_3.3.0                     Biobase_2.55.0               
+    ##  [15] compiler_4.2.1                crisprBowtie_1.1.1           
+    ##  [17] cli_3.3.0                     Biobase_2.57.1               
     ##  [19] basilisk.utils_1.9.1          crisprScoreData_1.1.3        
-    ##  [21] xml2_1.3.3                    DelayedArray_0.21.2          
-    ##  [23] rtracklayer_1.55.4            randomForest_4.7-1           
+    ##  [21] xml2_1.3.3                    DelayedArray_0.23.1          
+    ##  [23] rtracklayer_1.57.0            randomForest_4.7-1.1         
     ##  [25] readr_2.1.2                   rappdirs_0.3.3               
-    ##  [27] stringr_1.4.0                 digest_0.6.29                
-    ##  [29] Rsamtools_2.11.0              rmarkdown_2.13               
-    ##  [31] crisprScore_1.1.13            basilisk_1.9.2               
-    ##  [33] XVector_0.35.0                pkgconfig_2.0.3              
-    ##  [35] htmltools_0.5.2               MatrixGenerics_1.7.0         
-    ##  [37] dbplyr_2.1.1                  fastmap_1.1.0                
-    ##  [39] BSgenome_1.64.0               rlang_1.0.4                  
-    ##  [41] rstudioapi_0.13               RSQLite_2.2.12               
-    ##  [43] shiny_1.7.1                   BiocIO_1.5.0                 
-    ##  [45] generics_0.1.2                jsonlite_1.8.0               
-    ##  [47] BiocParallel_1.29.18          dplyr_1.0.8                  
-    ##  [49] VariantAnnotation_1.41.3      RCurl_1.98-1.6               
-    ##  [51] magrittr_2.0.2                GenomeInfoDbData_1.2.7       
-    ##  [53] Matrix_1.4-0                  Rcpp_1.0.8.3                 
-    ##  [55] fansi_1.0.2                   reticulate_1.25              
-    ##  [57] Rbowtie_1.36.0                lifecycle_1.0.1              
-    ##  [59] stringi_1.7.6                 yaml_2.3.5                   
-    ##  [61] SummarizedExperiment_1.25.3   zlibbioc_1.41.0              
-    ##  [63] AnnotationHub_3.3.9           BiocFileCache_2.3.4          
-    ##  [65] grid_4.2.0                    blob_1.2.2                   
-    ##  [67] promises_1.2.0.1              parallel_4.2.0               
-    ##  [69] ExperimentHub_2.3.5           crayon_1.5.0                 
-    ##  [71] dir.expiry_1.3.0              lattice_0.20-45              
-    ##  [73] Biostrings_2.64.0             GenomicFeatures_1.47.13      
-    ##  [75] hms_1.1.1                     KEGGREST_1.35.0              
-    ##  [77] knitr_1.37                    pillar_1.7.0                 
-    ##  [79] rjson_0.2.21                  biomaRt_2.51.3               
-    ##  [81] BiocVersion_3.15.0            XML_3.99-0.9                 
-    ##  [83] glue_1.6.2                    evaluate_0.15                
-    ##  [85] BiocManager_1.30.16           httpuv_1.6.5                 
-    ##  [87] png_0.1-7                     vctrs_0.3.8                  
-    ##  [89] tzdb_0.2.0                    purrr_0.3.4                  
-    ##  [91] assertthat_0.2.1              cachem_1.0.6                 
-    ##  [93] xfun_0.30                     mime_0.12                    
-    ##  [95] xtable_1.8-4                  restfulr_0.0.13              
-    ##  [97] later_1.3.0                   tibble_3.1.6                 
-    ##  [99] GenomicAlignments_1.31.2      AnnotationDbi_1.57.1         
-    ## [101] memoise_2.0.1                 interactiveDisplayBase_1.33.0
-    ## [103] ellipsis_0.3.2
+    ##  [27] stringr_1.4.1                 digest_0.6.29                
+    ##  [29] Rsamtools_2.13.4              rmarkdown_2.15.2             
+    ##  [31] crisprScore_1.1.14            basilisk_1.9.2               
+    ##  [33] XVector_0.37.0                pkgconfig_2.0.3              
+    ##  [35] htmltools_0.5.3               MatrixGenerics_1.9.1         
+    ##  [37] dbplyr_2.2.1                  fastmap_1.1.0                
+    ##  [39] BSgenome_1.65.2               rlang_1.0.4                  
+    ##  [41] rstudioapi_0.14               RSQLite_2.2.16               
+    ##  [43] shiny_1.7.2                   BiocIO_1.7.1                 
+    ##  [45] generics_0.1.3                jsonlite_1.8.0               
+    ##  [47] BiocParallel_1.31.12          dplyr_1.0.9                  
+    ##  [49] VariantAnnotation_1.43.3      RCurl_1.98-1.8               
+    ##  [51] magrittr_2.0.3                GenomeInfoDbData_1.2.8       
+    ##  [53] Matrix_1.4-1                  Rcpp_1.0.9                   
+    ##  [55] fansi_1.0.3                   reticulate_1.25              
+    ##  [57] Rbowtie_1.37.0                lifecycle_1.0.1              
+    ##  [59] stringi_1.7.8                 yaml_2.3.5                   
+    ##  [61] SummarizedExperiment_1.27.1   zlibbioc_1.43.0              
+    ##  [63] AnnotationHub_3.5.0           BiocFileCache_2.5.0          
+    ##  [65] grid_4.2.1                    blob_1.2.3                   
+    ##  [67] promises_1.2.0.1              parallel_4.2.1               
+    ##  [69] ExperimentHub_2.5.0           crayon_1.5.1                 
+    ##  [71] dir.expiry_1.5.0              lattice_0.20-45              
+    ##  [73] Biostrings_2.65.2             GenomicFeatures_1.49.6       
+    ##  [75] hms_1.1.2                     KEGGREST_1.37.3              
+    ##  [77] knitr_1.40                    pillar_1.8.1                 
+    ##  [79] rjson_0.2.21                  codetools_0.2-18             
+    ##  [81] biomaRt_2.53.2                BiocVersion_3.16.0           
+    ##  [83] XML_3.99-0.10                 glue_1.6.2                   
+    ##  [85] evaluate_0.16                 BiocManager_1.30.18          
+    ##  [87] httpuv_1.6.5                  png_0.1-7                    
+    ##  [89] vctrs_0.4.1                   tzdb_0.3.0                   
+    ##  [91] purrr_0.3.4                   assertthat_0.2.1             
+    ##  [93] cachem_1.0.6                  xfun_0.32                    
+    ##  [95] mime_0.12                     xtable_1.8-4                 
+    ##  [97] restfulr_0.0.15               later_1.3.0                  
+    ##  [99] tibble_3.1.8                  GenomicAlignments_1.33.1     
+    ## [101] AnnotationDbi_1.59.1          memoise_2.0.1                
+    ## [103] interactiveDisplayBase_1.35.0 ellipsis_0.3.2

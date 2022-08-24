@@ -38,7 +38,7 @@ for both human and human.
 ### OS Requirements
 
 This package is supported for macOS, Linux and Windows machines.
-It was developed and tested on R version 4.2.
+It was developed and tested on R version 4.2.1
 
 ## Installation
 
