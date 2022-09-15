@@ -2,6 +2,7 @@ library(crisprDesign)
 library(devtools)
 library(biomaRt)
 
+
 ### Human
 txdb <- getTxDb(organism="Homo sapiens",
                 release=104)
@@ -20,6 +21,8 @@ txdb <- TxDb2GRangesList(txdb)
 GenomeInfoDb::genome(txdb) <- "mm10"
 txdb_mouse <- txdb
 use_data(txdb_mouse, compress="xz", overwrite=TRUE)
+
+
 
 
 
