@@ -4,3 +4,4 @@ vignettes/crisprDesignData.html
 README.Rmd
 inst/fantom5/hg38_liftover+new_CAGE_peaks_phase1and2.bed.gz
 ^\.github$
+vignettes/crisprDesignData_paper*

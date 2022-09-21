@@ -72,6 +72,9 @@ library(crisprDesignData)
 | `gr.repeats.mm10`   | `GRanges` |             | RepeatMasker data from UCSC genome browser (mm10/GRCm38) |
 | `canonicalHuman`   | `data.frame` |   Release 104          | Canonical Ensembl transcripts for human |
 | `canonicalMouse`   | `data.frame` |   Release 102          | Canonical Ensembl transcripts for mouse |
+| `pfamTableHuman`   | `DataFrame` |   Release 104          | Pfam domains for human Ensembl transcripts |
+| `pfamTableMousen`   | `DataFrame` |   Release 102          | Pfam domains for mouse Ensembl transcripts |
+
 
 
 
@@ -186,6 +189,22 @@ human protein coding genes where available.
 data(canonicalHuman, package="crisprDesignData")
 head(canonicalHuman)
 ```
+
+# Pfam domains
+
+The DataFrame objects `pfamTableHuman` and `pfamTableMouse` contains 
+Pfam domains retrieved from biomaRt for human and mouse transcripts.
+
+
+```{r}
+data(pfamTableHuman, package="crisprDesignData")
+head(pfamTableHuman)
+```
+
+The `pfam_start` and `pfam_end` columns contain the amino acid coordinates
+of the domain start and end, respectively, and the `pfam` column contains
+the Pfam domain ID. 
+
 
 # License
 

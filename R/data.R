@@ -141,3 +141,26 @@
 #' @format data.frame
 #' @usage data(canonicalMouse, package="crisprDesignData")
 "canonicalMouse"
+
+
+#' Table of Pfam doains for human transcripts
+#'
+#' DataFrame containing Pfam domain information for human Ensembl transcripts.
+#' (Ensembl release 104)).
+#' 
+#' @format DataFrame
+#' @usage data(pfamTableHuman, package="crisprDesignData")
+"pfamTableHuman"
+
+#' Table of Pfam doains for mouse transcripts
+#'
+#' DataFrame containing Pfam domain information for mouse Ensembl transcripts.
+#' (Ensembl release 102)).
+#' 
+#' @format DataFrame
+#' @usage data(pfamTableMouse, package="crisprDesignData")
+"pfamTableMouse"
+
+
+
+

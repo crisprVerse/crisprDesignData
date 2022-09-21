@@ -16,6 +16,7 @@ crisprDesignData: useful data for the crisprVerse ecosystem
     datasets</a>
 -   <a href="#canonical-transcripts"
     id="toc-canonical-transcripts">Canonical transcripts</a>
+-   <a href="#pfam-domains" id="toc-pfam-domains">Pfam domains</a>
 -   <a href="#license" id="toc-license">License</a>
 -   <a href="#reproducibility" id="toc-reproducibility">Reproducibility</a>
 
@@ -69,6 +70,8 @@ library(crisprDesignData)
 | `gr.repeats.mm10` | `GRanges`      |             | RepeatMasker data from UCSC genome browser (mm10/GRCm38)        |
 | `canonicalHuman`  | `data.frame`   | Release 104 | Canonical Ensembl transcripts for human                         |
 | `canonicalMouse`  | `data.frame`   | Release 102 | Canonical Ensembl transcripts for mouse                         |
+| `pfamTableHuman`  | `DataFrame`    | Release 104 | Pfam domains for human Ensembl transcripts                      |
+| `pfamTableMousen` | `DataFrame`    | Release 102 | Pfam domains for mouse Ensembl transcripts                      |
 
 # TxDb datasets
 
@@ -200,8 +203,8 @@ head(cds)
     ##   region_2 ENSP00000256078 protein_coding        KRAS ENSE00001719809         3
     ##   region_3 ENSP00000256078 protein_coding        KRAS ENSE00001644818         4
     ##   region_4 ENSP00000256078 protein_coding        KRAS ENSE00001189807         5
-    ##   region_5 ENSP00000256078 protein_coding        KRAS ENSE00000936617         2
-    ##   region_6 ENSP00000256078 protein_coding        KRAS ENSE00001719809         3
+    ##   region_5 ENSP00000308495 protein_coding        KRAS ENSE00000936617         2
+    ##   region_6 ENSP00000308495 protein_coding        KRAS ENSE00001719809         3
     ##            cds_start   cds_end  tx_start    tx_end   cds_len exon_start
     ##            <integer> <integer> <integer> <integer> <integer>  <integer>
     ##   region_1      <NA>      <NA>  25205246  25250929       570   25245274
@@ -385,6 +388,30 @@ head(canonicalHuman)
     ## 5 ENST00000349077 ENSG00000118004
     ## 6 ENST00000273130 ENSG00000144635
 
+# Pfam domains
+
+The DataFrame objects `pfamTableHuman` and `pfamTableMouse` contains
+Pfam domains retrieved from biomaRt for human and mouse transcripts.
+
+``` r
+data(pfamTableHuman, package="crisprDesignData")
+head(pfamTableHuman)
+```
+
+    ## DataFrame with 6 rows and 4 columns
+    ##   ensembl_transcript_id        pfam pfam_start  pfam_end
+    ##             <character> <character>  <integer> <integer>
+    ## 1       ENST00000673477     PF12037         41       286
+    ## 2       ENST00000673477     PF00004        348       474
+    ## 3       ENST00000308647     PF12037         40        96
+    ## 4       ENST00000308647     PF12037         99       180
+    ## 5       ENST00000308647     PF00004        242       294
+    ## 6       ENST00000511072     PF13912        231       251
+
+The `pfam_start` and `pfam_end` columns contain the amino acid
+coordinates of the domain start and end, respectively, and the `pfam`
+column contains the Pfam domain ID.
+
 # License
 
 The package is licensed under the MIT license.
@@ -411,9 +438,9 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.132    crisprBase_1.1.5         GenomicRanges_1.49.1    
-    ## [4] GenomeInfoDb_1.33.5      IRanges_2.31.2           S4Vectors_0.35.1        
-    ## [7] BiocGenerics_0.43.1      crisprDesignData_0.99.17
+    ## [1] crisprDesign_0.99.153    crisprBase_1.1.5         GenomicRanges_1.49.1    
+    ## [4] GenomeInfoDb_1.33.7      IRanges_2.31.2           S4Vectors_0.35.3        
+    ## [7] BiocGenerics_0.43.4      crisprDesignData_0.99.21
     ## 
     ## loaded via a namespace (and not attached):
     ##   [1] bitops_1.0-7                  matrixStats_0.62.0           
@@ -424,35 +451,35 @@ sessionInfo()
     ##  [11] tidyselect_1.1.2              prettyunits_1.1.1            
     ##  [13] bit_4.0.4                     curl_4.3.2                   
     ##  [15] compiler_4.2.1                crisprBowtie_1.1.1           
-    ##  [17] cli_3.3.0                     Biobase_2.57.1               
-    ##  [19] basilisk.utils_1.9.1          crisprScoreData_1.1.3        
+    ##  [17] cli_3.4.0                     Biobase_2.57.1               
+    ##  [19] basilisk.utils_1.9.3          crisprScoreData_1.1.3        
     ##  [21] xml2_1.3.3                    DelayedArray_0.23.1          
     ##  [23] rtracklayer_1.57.0            randomForest_4.7-1.1         
     ##  [25] readr_2.1.2                   rappdirs_0.3.3               
     ##  [27] stringr_1.4.1                 digest_0.6.29                
-    ##  [29] Rsamtools_2.13.4              rmarkdown_2.15.2             
-    ##  [31] crisprScore_1.1.14            basilisk_1.9.2               
-    ##  [33] XVector_0.37.0                pkgconfig_2.0.3              
+    ##  [29] Rsamtools_2.13.4              rmarkdown_2.16               
+    ##  [31] crisprScore_1.1.15            basilisk_1.9.6               
+    ##  [33] XVector_0.37.1                pkgconfig_2.0.3              
     ##  [35] htmltools_0.5.3               MatrixGenerics_1.9.1         
     ##  [37] dbplyr_2.2.1                  fastmap_1.1.0                
-    ##  [39] BSgenome_1.65.2               rlang_1.0.4                  
+    ##  [39] BSgenome_1.65.2               rlang_1.0.5                  
     ##  [41] rstudioapi_0.14               RSQLite_2.2.16               
     ##  [43] shiny_1.7.2                   BiocIO_1.7.1                 
     ##  [45] generics_0.1.3                jsonlite_1.8.0               
-    ##  [47] BiocParallel_1.31.12          dplyr_1.0.9                  
+    ##  [47] BiocParallel_1.31.12          dplyr_1.0.10                 
     ##  [49] VariantAnnotation_1.43.3      RCurl_1.98-1.8               
     ##  [51] magrittr_2.0.3                GenomeInfoDbData_1.2.8       
     ##  [53] Matrix_1.4-1                  Rcpp_1.0.9                   
-    ##  [55] fansi_1.0.3                   reticulate_1.25              
+    ##  [55] fansi_1.0.3                   reticulate_1.26              
     ##  [57] Rbowtie_1.37.0                lifecycle_1.0.1              
     ##  [59] stringi_1.7.8                 yaml_2.3.5                   
-    ##  [61] SummarizedExperiment_1.27.1   zlibbioc_1.43.0              
-    ##  [63] AnnotationHub_3.5.0           BiocFileCache_2.5.0          
+    ##  [61] SummarizedExperiment_1.27.2   zlibbioc_1.43.0              
+    ##  [63] AnnotationHub_3.5.1           BiocFileCache_2.5.0          
     ##  [65] grid_4.2.1                    blob_1.2.3                   
     ##  [67] promises_1.2.0.1              parallel_4.2.1               
     ##  [69] ExperimentHub_2.5.0           crayon_1.5.1                 
-    ##  [71] dir.expiry_1.5.0              lattice_0.20-45              
-    ##  [73] Biostrings_2.65.2             GenomicFeatures_1.49.6       
+    ##  [71] dir.expiry_1.5.1              lattice_0.20-45              
+    ##  [73] Biostrings_2.65.3             GenomicFeatures_1.49.6       
     ##  [75] hms_1.1.2                     KEGGREST_1.37.3              
     ##  [77] knitr_1.40                    pillar_1.8.1                 
     ##  [79] rjson_0.2.21                  codetools_0.2-18             
