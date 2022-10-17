@@ -28,8 +28,8 @@ options("knitr.graphics.auto_pdf"=TRUE, eval=TRUE)
 # Overview
 
 The `crisprDesignData` package provides ready-to-use 
-annotation data needed needed for the `crisprVerse` ecosystem, 
-for both human and human.
+annotation data needed needed for the [crisprVerse](https://github.com/crisprVerse) ecosystem, 
+for both human and human. Visit our [crisprVerse tutorial page](https://github.com/crisprVerse/Tutorials) to learn how the data are used for performing CRISPR gRNA design. 
 
 # Installation
 

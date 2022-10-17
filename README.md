@@ -27,7 +27,10 @@ Authors: Jean-Philippe Fortin, Luke Hoberecht
 # Overview
 
 The `crisprDesignData` package provides ready-to-use annotation data
-needed needed for the `crisprVerse` ecosystem, for both human and human.
+needed needed for the [crisprVerse](https://github.com/crisprVerse)
+ecosystem, for both human and human. Visit our [crisprVerse tutorial
+page](https://github.com/crisprVerse/Tutorials) to learn how the data
+are used for performing CRISPR gRNA design.
 
 # Installation
 
@@ -438,9 +441,9 @@ sessionInfo()
     ## [8] base     
     ## 
     ## other attached packages:
-    ## [1] crisprDesign_0.99.153    crisprBase_1.1.5         GenomicRanges_1.49.1    
+    ## [1] crisprDesign_0.99.176    crisprBase_1.1.8         GenomicRanges_1.49.1    
     ## [4] GenomeInfoDb_1.33.7      IRanges_2.31.2           S4Vectors_0.35.3        
-    ## [7] BiocGenerics_0.43.4      crisprDesignData_0.99.21
+    ## [7] BiocGenerics_0.43.4      crisprDesignData_0.99.23
     ## 
     ## loaded via a namespace (and not attached):
     ##   [1] bitops_1.0-7                  matrixStats_0.62.0           
