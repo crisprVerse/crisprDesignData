@@ -37,6 +37,17 @@
 #' @usage data(txdb_mouse, package="crisprDesignData")
 "txdb_mouse"
 
+#' GRangesList representing Ensembl gene model coordinates for crab-eating macaque
+#'
+#' GRangesList representing Ensembl gene model coordinates for the crab-eating macaque
+#' in macFas6 coordinates (Ensembl release 108)
+#' 
+#' @format GRangesList
+#' @usage data(txdb_cyno, package="crisprDesignData")
+"txdb_cyno"
+
+
+
 
 #' GRangesList representing Ensembl gene model coordinates for human
 #'
@@ -141,6 +152,16 @@
 #' @format data.frame
 #' @usage data(canonicalMouse, package="crisprDesignData")
 "canonicalMouse"
+
+#' Canonical Ensembl transcripts for crab-eating macaque genes (Ensembl release 108)
+#'
+#' data.frame containing canonical Ensembl transcripts for crab-eating macaque 
+#' genes. First column contains transcript ID, second column contains gene ID.
+#' 
+#' @format data.frame
+#' @usage data(canonicalCyno, package="crisprDesignData")
+"canonicalCyno"
+
 
 
 #' Table of Pfam doains for human transcripts

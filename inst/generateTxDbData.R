@@ -34,12 +34,23 @@ txdb_human_106 <- txdb
 use_data(txdb_human_106, compress="xz", overwrite=TRUE)
 
 
+# Cyno:
+txdb <- getTxDb(organism="Macaca fascicularis",
+                tx_attrib=NULL)
+txdb <- TxDb2GRangesList(txdb,
+                         standardChromOnly=FALSE,
+                         seqlevelsStyle="NCBI")
+GenomeInfoDb::genome(txdb) <- "macFas6"
+txdb_cyno <- txdb
+use_data(txdb_cyno, compress="xz", overwrite=TRUE)
 
 
 
 
 getCanonicalTranscripts <- function(gene_ids,
-                                    organism=c("hsapiens", "mmusculus")
+                                    organism=c("hsapiens",
+                                               "mmusculus",
+                                               "mfascicularis")
 ){
     organism <- match.arg(organism)
     mart <- biomaRt::useMart("ensembl",
@@ -52,7 +63,7 @@ getCanonicalTranscripts <- function(gene_ids,
     attributes <- c(x1,x2,x3)
     df <- getBM(attributes=attributes,
                 filters=filters,
-                values=ids,
+                values=gene_ids,
                 mart=mart)
     df <- df[which(df$transcript_is_canonical==1),,drop=FALSE]
     df$transcript_is_canonical <- NULL
@@ -70,10 +81,13 @@ ids <- unique(txdb_mouse$cds$gene_id)
 canonicalMouse <- getCanonicalTranscripts(ids,
                                           organism="mmusculus")
 
+ids <- unique(txdb_cyno$cds$gene_id)
+canonicalCyno <- getCanonicalTranscripts(ids,
+                                         organism="mfascicularis")
 
 
 cleanCanonical <- function(canonicalTxs,
-                           appris,
+                           appris=NULL,
                            txObject
 ){
     cols <- c("gene_id", "tx_id", "gene_symbol")
@@ -86,33 +100,35 @@ cleanCanonical <- function(canonicalTxs,
     good <- canonicalTxs$tx_id %in% tx2Gene$tx_id
     canonicalTxs <- canonicalTxs[good,]
 
-    # Let's add MANE select transcripts:
-    missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
-    appris <- appris[appris$gene_id %in% missing,]
-    mane <- appris[appris$mane_select,]
-    stopifnot(!any(duplicated(mane$gene_id)))
-    mane <- mane[, c("gene_id", "tx_id")]
-    canonicalTxs <- rbind(canonicalTxs, mane)
+    if (!is.null(appris)){
+        # Let's add MANE select transcripts:
+        missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
+        appris <- appris[appris$gene_id %in% missing,]
+        mane <- appris[appris$mane_select,]
+        stopifnot(!any(duplicated(mane$gene_id)))
+        mane <- mane[, c("gene_id", "tx_id")]
+        canonicalTxs <- rbind(canonicalTxs, mane)
 
-    # Let's add Appris principal:
-    missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
-    appris <- appris[appris$gene_id %in% missing,]
-    principal <- appris[appris$appris_label=="PRINCIPAL",]
-    principal <- principal[order(principal$gene_id, principal$appris_number),]
-    missing <- intersect(missing, principal$gene_id)
-    wh <- match(missing, principal$gene_id)
-    principal <- principal[wh,]
-    principal <- principal[, c("gene_id", "tx_id")]
-    canonicalTxs <- rbind(canonicalTxs, principal)
+        # Let's add Appris principal:
+        missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
+        appris <- appris[appris$gene_id %in% missing,]
+        principal <- appris[appris$appris_label=="PRINCIPAL",]
+        principal <- principal[order(principal$gene_id, principal$appris_number),]
+        missing <- intersect(missing, principal$gene_id)
+        wh <- match(missing, principal$gene_id)
+        principal <- principal[wh,]
+        principal <- principal[, c("gene_id", "tx_id")]
+        canonicalTxs <- rbind(canonicalTxs, principal)
 
-    # Let's add Appris alternative:
-    missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
-    appris <- appris[appris$gene_id %in% missing,]
-    missing <- intersect(missing, appris$gene_id)
-    wh <- match(missing, appris$gene_id)
-    appris <- appris[wh,]
-    appris <- appris[, c("gene_id", "tx_id")]
-    canonicalTxs <- rbind(canonicalTxs, appris)
+        # Let's add Appris alternative:
+        missing <- setdiff(tx2Gene$gene_id, canonicalTxs$gene_id)
+        appris <- appris[appris$gene_id %in% missing,]
+        missing <- intersect(missing, appris$gene_id)
+        wh <- match(missing, appris$gene_id)
+        appris <- appris[wh,]
+        appris <- appris[, c("gene_id", "tx_id")]
+        canonicalTxs <- rbind(canonicalTxs, appris)
+    }
 
     # Are there any still missing?
     # We will select the longest isoform for missing genes:
@@ -151,8 +167,16 @@ canonicalMouse <- cleanCanonical(canonicalMouse,
 
 
 
+#load("../data/canonicalMouse.rda")
+load("../data/txdb_cyno.rda")
+canonicalCyno <- cleanCanonical(canonicalCyno,
+                                appris=NULL,
+                                txObject=txdb_cyno)
+
+
 use_data(canonicalHuman, compress="xz", overwrite=TRUE)
 use_data(canonicalMouse, compress="xz", overwrite=TRUE)
+use_data(canonicalCyno, compress="xz", overwrite=TRUE)
 
 
 
