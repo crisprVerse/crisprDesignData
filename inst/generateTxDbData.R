@@ -40,10 +40,23 @@ txdb <- getTxDb(organism="Macaca fascicularis",
 txdb <- TxDb2GRangesList(txdb,
                          standardChromOnly=FALSE,
                          seqlevelsStyle="NCBI")
-GenomeInfoDb::genome(txdb) <- "macFas6"
+GenomeInfoDb::genome(txdb) <- "Macaca_fascicularis_6.0"
 txdb_cyno <- txdb
-use_data(txdb_cyno, compress="xz", overwrite=TRUE)
+#use_data(txdb_cyno, compress="xz", overwrite=TRUE)
 
+library(BSgenome.Mfascicularis.NCBI.6.0)
+bsgenome <- BSgenome.Mfascicularis.NCBI.6.0
+levels1 <- GenomeInfoDb::seqlevels(txdb_cyno)
+levels2 <- GenomeInfoDb::seqlevels(bsgenome)
+common <- intersect(levels1, levels2)
+tx <- txdb_cyno
+GenomeInfoDb::genome(tx) <- "Macaca_fascicularis_6.0"
+for (i in 1:length(tx)){
+    tx[[i]] <- tx[[i]][seqnames(tx[[i]]) %in% common]
+}
+seqlevels(tx) <- seqlevelsInUse(tx)
+txdb_cyno <- tx
+use_data(txdb_cyno, compress="xz", overwrite=TRUE)
 
 
 
