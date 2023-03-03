@@ -46,6 +46,15 @@
 #' @usage data(txdb_cyno, package="crisprDesignData")
 "txdb_cyno"
 
+#' GRangesList representing Ensembl gene model coordinates for crab-eating macaque
+#'
+#' GRangesList representing Ensembl gene model coordinates for the crab-eating macaque
+#' in macFas5 coordinates (Ensembl release 102)
+#' 
+#' @format GRangesList
+#' @usage data(txdb_cyno_ensmebl102, package="crisprDesignData")
+"txdb_cyno_ensembl102"
+
 
 
 

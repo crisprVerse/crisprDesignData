@@ -34,7 +34,7 @@ txdb_human_106 <- txdb
 use_data(txdb_human_106, compress="xz", overwrite=TRUE)
 
 
-# Cyno:
+# Cyno 6.0:
 txdb <- getTxDb(organism="Macaca fascicularis",
                 tx_attrib=NULL)
 txdb <- TxDb2GRangesList(txdb,
@@ -57,6 +57,37 @@ for (i in 1:length(tx)){
 seqlevels(tx) <- seqlevelsInUse(tx)
 txdb_cyno <- tx
 use_data(txdb_cyno, compress="xz", overwrite=TRUE)
+
+
+# Cyno 5.0:
+txdb <- getTxDb(organism="Macaca fascicularis",
+                release=102,
+                tx_attrib=NULL)
+txdb <- TxDb2GRangesList(txdb,
+                         standardChromOnly=FALSE,
+                         seqlevelsStyle="NCBI")
+GenomeInfoDb::genome(txdb) <- "Macaca_fascicularis_5.0"
+txdb_cyno_ensembl102 <- txdb
+#use_data(txdb_cyno_ensembl102, compress="xz", overwrite=TRUE)
+library(BSgenome.Mfascicularis.NCBI.5.0)
+bsgenome <- BSgenome.Mfascicularis.NCBI.5.0
+levels1 <- GenomeInfoDb::seqlevels(txdb_cyno_ensembl102)
+levels1_standard <- GenomeInfoDb::standardChromosomes(txdb_cyno_ensembl102)
+levels1_standard <- levels1_standard[levels1_standard != "MT"]
+levels1[levels1 %in% levels1_standard] <- paste0("MFA", levels1_standard)
+GenomeInfoDb::seqlevels(txdb_cyno_ensembl102) <- levels1
+levels2 <- GenomeInfoDb::seqlevels(bsgenome)
+common <- intersect(levels1, levels2)
+tx <- txdb_cyno_ensembl102
+GenomeInfoDb::genome(tx) <- "Macaca_fascicularis_5.0"
+for (i in 1:length(tx)){
+    tx[[i]] <- tx[[i]][seqnames(tx[[i]]) %in% common]
+}
+seqlevels(tx) <- seqlevelsInUse(tx)
+txdb_cyno_ensembl102 <- tx
+use_data(txdb_cyno_ensembl102, compress="xz", overwrite=TRUE)
+
+
 
 
 

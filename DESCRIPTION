@@ -5,7 +5,7 @@ Description: Provides precomputed data for the crisprVerse ecosystem.
     (TSSs), are provided for both mouse and human. Genomic coordinates
     of repeat elements are also provided. All objects are expressed in 
     GRCh38 (human) and GRCm38 (mouse) coordinates. 
-Version: 0.99.28
+Version: 0.99.29
 Authors@R: c(
     person("Jean-Philippe", "Fortin", email = "fortin946@gmail.com", role = c("aut", "cre")),
     person("Luke", "Hoberecht", email = "lukehob3@gmail.com", role = c("aut"))
@@ -21,7 +21,7 @@ Suggests:
     testthat
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 biocViews:
     AnnotationData,
