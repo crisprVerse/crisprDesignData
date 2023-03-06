@@ -69,13 +69,13 @@ txdb <- TxDb2GRangesList(txdb,
 GenomeInfoDb::genome(txdb) <- "Macaca_fascicularis_5.0"
 txdb_cyno_ensembl102 <- txdb
 #use_data(txdb_cyno_ensembl102, compress="xz", overwrite=TRUE)
-library(BSgenome.Mfascicularis.NCBI.5.0)
-bsgenome <- BSgenome.Mfascicularis.NCBI.5.0
+# library(BSgenome.Mfascicularis.NCBI.5.0)
+bsgenome <- crisprDesignGne::getGenomePackage('cyno5')
 levels1 <- GenomeInfoDb::seqlevels(txdb_cyno_ensembl102)
-levels1_standard <- GenomeInfoDb::standardChromosomes(txdb_cyno_ensembl102)
-levels1_standard <- levels1_standard[levels1_standard != "MT"]
-levels1[levels1 %in% levels1_standard] <- paste0("MFA", levels1_standard)
-GenomeInfoDb::seqlevels(txdb_cyno_ensembl102) <- levels1
+# levels1_standard <- GenomeInfoDb::standardChromosomes(txdb_cyno_ensembl102)
+# levels1_standard <- levels1_standard[levels1_standard != "MT"]
+# levels1[levels1 %in% levels1_standard] <- paste0("MFA", levels1_standard)
+# GenomeInfoDb::seqlevels(txdb_cyno_ensembl102) <- levels1
 levels2 <- GenomeInfoDb::seqlevels(bsgenome)
 common <- intersect(levels1, levels2)
 tx <- txdb_cyno_ensembl102

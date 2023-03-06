@@ -8,7 +8,7 @@
 GRangesList
 }
 \usage{
-data(txdb_cyno_ensmebl102, package="crisprDesignData")
+data(txdb_cyno_ensembl102, package="crisprDesignData")
 }
 \description{
 GRangesList representing Ensembl gene model coordinates for the crab-eating macaque

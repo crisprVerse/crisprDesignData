@@ -52,7 +52,7 @@
 #' in macFas5 coordinates (Ensembl release 102)
 #' 
 #' @format GRangesList
-#' @usage data(txdb_cyno_ensmebl102, package="crisprDesignData")
+#' @usage data(txdb_cyno_ensembl102, package="crisprDesignData")
 "txdb_cyno_ensembl102"
 
 
